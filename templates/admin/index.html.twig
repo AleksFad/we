@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<style>
+    .wrapper { margin: 1em auto; width: 100vh;height: 100vh; font: 18px/1.5 sans-serif; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); }
+    .text-center{text-align: center}
+    .m-auto{margin: 0 auto;}
+    .pt-50{padding-top: 50px;}
+    .link{text-decoration: none; color: #000; border: 1px solid #916319;padding:15px;}
+</style>
+
+<div class="wrapper">
+    <h1 class="text-center m-auto pt-50">Admin zone</h1>
+    <div class="container">
+        <div class="buttons text-center pt-50">
+            <a class="link" href="/admin/news">View all news</a>
+            <a class="link" href="/admin/category">View all categories</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

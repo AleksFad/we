@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Public{% endblock %}
+
+{% block body %}
+<h1>admin zone: <a href="/admin">here</a></h1>
+    <h1>View all categories</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>title</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td><a href="/{{ category.title }}">{{ category.title }}</a></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>No categories found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>News</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>title</th>
+            <th>description</th>
+            <th>image</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for one_news in news %}
+            <tr>
+                <td>{{ one_news.title }}</td>
+                <td>{{ one_news.description }}</td>
+                <td><img src="{{ one_news.image }}" alt=""></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>No news found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

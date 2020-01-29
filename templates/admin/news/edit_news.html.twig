@@ -1,0 +1,39 @@
+<style>
+    th, td {
+        padding: 10px;
+    }
+    th {
+        text-align: right;
+    }
+</style>
+
+<h1>Create or Update Article:</h1>
+
+{{ form_start(form) }}
+
+<table>
+    <tbody>
+    <tr>
+        <th>Title:</th>
+        <td>{{ form_widget(form.title) }}</td>
+    </tr>
+    <tr>
+        <th>Description:</th>
+        <td>{{ form_widget(form.description) }}</td>
+    </tr>
+    <tr>
+        <th>Content:</th>
+        <td>{{ form_widget(form.content) }}</td>
+    </tr>
+{#    <tr>#}
+{#        <th>Picture:</th>#}
+{#        <td><img src={{ form_widget(form.picture.value) }} /></td>#}
+{#    </tr>#}
+    <tr>
+        <th></th>
+        <td>{{ form_widget(form.submit) }}</td>
+    </tr>
+    </tbody>
+</table>
+
+{{ form_end(form) }}

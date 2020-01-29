@@ -1,0 +1,61 @@
+<style>
+    th, td {
+        padding: 10px;
+    }
+    th {
+        text-align: right;
+    }
+</style>
+
+<h1>News Created or Modified</h1>
+
+<table>
+    <tbody>
+
+    <tr>
+        <th>Title:</th>
+        <td>{{ news.title }}</td>
+    </tr>
+{#    <tr>#}
+{#        <th>Description:</th>#}
+{#        <td>{{ news.description }}</td>#}
+{#    </tr>#}
+
+    <tr>
+        <th>Date:</th>
+        <td>{{ news.date|date('Y-m-d') }}</td>
+    </tr>
+    <tr>
+        <th>Category:</th>
+        <td>{{ news.categories }}</td>
+    </tr>
+    <tr>
+        <th>Content:</th>
+        <td>{{ news.content }}</td>
+    </tr>
+    <tr>
+        <td><td><img src={{ news.image }} /></td></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h3><i class="pr-3 fa fa-comment"></i>{{ news.comments|length }} Comments</h3>
+        {% for comment in news.comments %}
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="comment-container d-inline-block pl-3 align-top">
+                        <span class="comment"> {{ comment.content }}</span><span><a href="{{path ('comments_delete', {'id' : comment.id })}}"> Delete comment</a></span>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<br/>
+<a href="/admin/news/{{ news.id }}/category/create">Add a category</a>
+<a href="{{path ('comments_create', {'id' : news.id })}}">Add new comment</a>
+<a href="/admin/news">View All News</a> -
+<a href="/admin/news/update/{{ news.id }}">Modify News</a>
